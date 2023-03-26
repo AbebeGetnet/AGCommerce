@@ -1,0 +1,16 @@
+﻿@model Category
+<form method="post" asp-action="Edit">
+    <div class="container">
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit category</h2>
+        </div>
+        <div class="col-6">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div>
+            <button type="submit" class="btn btn-secondary" style="width:150px">Update</button>
+            <a asp-action="Index" class="btn btn-primary" style="width:150px">Back to list</a>
+        </div>
+    </div>
+</form>

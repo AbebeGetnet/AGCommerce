@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Category>
+
+<partial name="_Notification" />
+@{
+    <div class="container">
+        <div class="row pt-2">
+            <div class="col-6">
+                <h2 class="text-primary">Category list</h2>
+            </div>
+            <div class="col-6 text-end">
+                <a asp-action="Create" class="btn btn-primary">
+                    <i class="bi bi-plus-circle-fill"></i>&nbsp; Add new Category
+                </a>
+            </div>
+        </div>
+        <table class="table table-sm table-bordered table-striped col-6">
+            <thead>
+                <tr>
+                <th>Category name</th>
+                <th></th>
+                </tr>
+            </thead>
+            <tbody class="col-6">
+                @foreach (var category in Model)
+                {
+                    <tr>
+                        <td>@category.Name</td>
+                        <td>
+                            <div class="w-75 btn-group" role="group">
+                                <a asp-action="Edit" asp-route-Id="@category.Id" class="btn btn-secondary"><i class="bi bi-pencil-square"></i>Edit</a>&nbsp;
+                                <a asp-action="Delete" asp-route-Id="@category.Id" class="btn btn-danger"><i class="bi bi-trash-fill text-danger"></i>Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
