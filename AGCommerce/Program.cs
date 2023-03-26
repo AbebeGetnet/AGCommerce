@@ -1,5 +1,13 @@
+using AGCommerce.Data.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
+// Add datacontext services to the container.
+builder.Services.AddDbContext<AGCommerceDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AGCommerceConnection"));
+});
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
